@@ -14,11 +14,16 @@
     <link href="/fontawesome-free-5.15.0-web/css/solid.css" rel="stylesheet">
     <link href="/fontawesome-free-5.15.0-web/css/regular.css" rel="stylesheet">
 
-    <title>Olá, mundo!</title>
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" >
+
+    <title>To Learning</title>
   </head>
   <body>
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div style="color: white;">
+        <b>To Learning</b>
+      </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,29 +50,23 @@
       
       <div class="d-flex justify-content-around" style="margin-bottom: 30px;">
         <form class="form-inline"  style="width: 100%;">
-          <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+          <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" style="width: 100%;">
         </form>
         <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button> -->
       </div>
 
-      <div class="list-group">
+      <div id="tarefas" class="list-group">
+        
         <div class="list-group-item d-flex justify-content-between">
           <div class="form-check">
             <input type="checkbox" class="form-check-input" id="materialUnchecked">
             <label class="form-check-label" for="materialUnchecked">Material unchecked</label>
           </div>
           <div>
-            <i class="fas fa-pen" style="cursor: pointer;"></i>
-            <i class="far fa-trash-alt" style="cursor: pointer;"></i>
+            <i id="editartarefa" class="fas fa-pen" style="cursor: pointer;"></i>
+            <i id="apagartarefa" class="far fa-trash-alt" style="cursor: pointer;"></i>
           </div>
         </div>
-        
-        
-        <div class="list-group-item">
-          2
-        </div>
-      
-      
       
       </div>
 
@@ -76,7 +75,7 @@
       
       
       
-      <button id="btn-newtask" type="button" onclick="newTask()" class="custom-btn btn-primary" style="border-radius: 50%; width: 50px; height: 50px; position: absolute ;bottom: 10px;right: 10px; box-shadow: 0 0 1em gray;">
+      <button id="btn-newtask" type="button" onclick="newTask()" class="custom-btn btn-primary" style="border-radius: 50%; width: 50px; height: 50px; position: absolute ;bottom: 20px;right: 20px; box-shadow: 0 0 1em gray;">
         <i class="fas fa-plus"></i>
       </button>
       
@@ -86,16 +85,16 @@
     <!-- TELA 2 -->
     
     <div id="tela2" style="visibility: hidden; margin: 10px;">
-      <form>
+      <form id="taskForm">
         <div class="form-group">
-          <label for="exampleFormControlInput1">Tema de estudo</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1">
+          <label for="tema">Tema de estudo</label>
+          <input type="text" class="form-control" id="tema">
         </div>
 
 
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Objetivo do estudo</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <label for="descricao">Objetivo do estudo</label>
+          <textarea class="form-control" id="descricao" rows="3"></textarea>
         </div>
 
         <div class="form-group">
@@ -112,7 +111,7 @@
         </div>
 
         <div class="d-flex justify-content-center flex-wrap">
-          <button type="button" class="btn btn-outline-danger" style="margin-right: 10px;">Cancelar</button>
+          <button type="button" class="btn btn-outline-danger" style="margin-right: 10px;" onclick="backToList()">Cancelar</button>
           <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;" onclick="saveTask()">Salvar</button>
         </div>
       
