@@ -1,6 +1,6 @@
-//import  {Task}  from './models/task.js';
-var tasks = [];
-var idTask=undefined;
+// variaveis globais
+var tasks = []; // lista de tarefas cadastradas
+var idTask=undefined; // id controller do item de edição
 
 onload = () => {
     var t = JSON.parse(localStorage.getItem('tarefas'));
@@ -12,8 +12,9 @@ function newTask(value){
     document.getElementById("tela1").style.display = 'none';
     document.getElementById("tela2").style.visibility = 'visible';
 
+    // TO-DO desfazer essa gambiarra mostruosa
     if(value==='new'){
-        document.getElementById("edittask").style.visibility = 'hidden'; // inline-block;
+        document.getElementById("edittask").style.visibility = 'hidden';
         document.getElementById("newtask").style.visibility = 'visible';
     }else{
         document.getElementById("newtask").style.visibility = 'hidden';
@@ -53,14 +54,12 @@ function editTask(){
     }
 }
 
-function backToList(){
-    this.idTask = undefined;
-    document.getElementById("tela1").style.display = 'block';
-    document.getElementById("tela2").style.visibility = 'hidden';
-    this.resetButtons();
-    this.resetForms();
-}
-
+/**
+ * Função para renderizar a lista de estudos
+ * Constroi divs com a lista de tarefas e adiciona dinamicamente a div que contem o id "tarefas"
+ * Constroi cada item se necessario, a partir do createElement, de modo a encaminha para o navegador
+ * a div a ser adicionada na div Pai tarefas, fazendo as renderizações necessarias
+ */
 async function loadList(){
     var divPai = document.querySelector('#tarefas');
     divPai.innerHTML = '';
@@ -84,6 +83,20 @@ async function loadList(){
 
 }
 
+/**
+ * Funcao para voltar a pagina principal, limpando navegação da pagina anterior
+ */
+function backToList(){
+    this.idTask = undefined;
+    document.getElementById("tela1").style.display = 'block';
+    document.getElementById("tela2").style.visibility = 'hidden';
+    this.resetButtons();
+    this.resetForms();
+}
+
+/**
+ * Limpar formulario
+ */
 async function resetForms(){
     $('#tema').val("");
     $('#descricao').val("");
@@ -91,11 +104,20 @@ async function resetForms(){
     $('#endDate').val("");
 }
 
+/**
+ * Gambiarra: Restar botões de salvar
+ */
 async function resetButtons(){
     document.getElementById("edittask").style.visibility = 'hidden';
     document.getElementById("newtask").style.visibility = 'hidden';
 }
 
+/**
+ * Funcão para deletar tarefa cadastrada da lista.
+ * Dado o id, é removido da listem o objeto.
+ * 
+ * @param {int} id 
+ */
 async function apagarTarefa(id){
     const delTask = JSON.parse(localStorage.getItem('tarefas'));
     var updateTasks = delTask.filter(function (item ) {
@@ -106,6 +128,12 @@ async function apagarTarefa(id){
     document.location.reload(true);
 }
 
+/**
+ * Esta função é o inicio para editar a tarefa cadastrada.
+ * Dado o id como parametro, é renderizado os inputs, mostrando os dados já cadastrado 
+ * 
+ * @param {int} id 
+ */
 function editarTarefa(id){
     this.idTask = id;
     this.newTask('edit');
@@ -119,6 +147,13 @@ function editarTarefa(id){
     document.getElementById("endDate").value = editTask[0].endDate;
 }
 
+/**
+ * Funcao para gerar de modo randomico o Id da tarefa, a partir de um range definido como parametro
+ * 
+ * @param {int} min valor inicial
+ * @param {int} max valor final
+ * @returns         Retorna o id
+ */
 function randomInt(min, max) {
 	return min + Math.floor((max - min) * Math.random());
 }
