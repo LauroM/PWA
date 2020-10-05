@@ -5,7 +5,7 @@ onload = () => {
     (t)?tasks = t: tasks = [];
     loadList();
 }
-// var tasks = [];
+
 
 function newTask(){
     document.getElementById("tela1").style.display = 'none';
@@ -15,7 +15,8 @@ function newTask(){
 function saveTask(){
         
     if($('#tema').val() !== '' && $('#descricao').val() !== '' ){
-        const task = new Task(0,false,$('#tema').val(),$('#descricao').val(),$('#startDate').val(),$('#endDate').val());
+        
+        const task = new Task(tasks.length,false,$('#tema').val(),$('#descricao').val(),$('#startDate').val(),$('#endDate').val());
         console.log('Minhas tarefas =>  ', task);
         tasks.push(task);
         localStorage.setItem('tarefas', JSON.stringify(tasks));
@@ -50,7 +51,8 @@ async function createTask(){
 
     $('#tema').val("");
     $('#descricao').val("");
-    // resetar forms
+    $('#startDate').val("");
+    $('#endtDate').val("");
 
 }
 
@@ -68,24 +70,49 @@ async function loadList(){
                 <label class="form-check-label" for="materialUnchecked">${element.nome}</label>
             </div>
             <div>
-                <i onclick="editarTarefa()" class="fas fa-pen" style="cursor: pointer; color:#007bff; margin-right: 10px;"></i>
-                <i onclick="apagarTarefa()" class="far fa-trash-alt" style="cursor: pointer; color:red;"></i>
+                <i onclick="editarTarefa(${element.id})" class="fas fa-pen" style="cursor: pointer; color:#007bff; margin-right: 10px;"></i>
+                <i onclick="apagarTarefa(${element.id})" class="far fa-trash-alt" style="cursor: pointer; color:red;"></i>
             </div>
         </div>`;
         divPai.append(divNova);
+        this.resetForms();
     });
 
 }
 
-
-
-function apagarTarefa(){
-    console.log('=====> ');
-
-
-    // this.newTask();
+async function resetForms(){
+    $('#tema').val("");
+    $('#descricao').val("");
+    $('#startDate').val("");
+    $('#endtDate').val("");
 }
 
-function editarTarefa(){
+
+async function apagarTarefa(id){
+    const delTask = JSON.parse(localStorage.getItem('tarefas'));
+    var updateTasks = delTask.filter(function (item ) {
+        return item.id !== id;
+    });
+    localStorage.setItem('tarefas', JSON.stringify(updateTasks));
+    loadList();
+    document.location.reload(true);
+}
+
+function editarTarefa(id){
     this.newTask();
+    const editTasks = JSON.parse(localStorage.getItem('tarefas'));
+    var editTask = editTasks.filter(function (item) {
+        return item.id == id;
+    });
+    document.getElementById("tema").value = editTask[0].nome;
+    document.getElementById("descricao").value = editTask[0].descricao;
+    document.getElementById("startDate").value = editTask[0].startDate;
+    document.getElementById("endDate").value = editTask[0].endtDate;
+
+    //this.saveTask('edit');
+
+}
+
+async function updateTasks(){
+    this.saveTask();
 }
