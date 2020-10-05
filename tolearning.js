@@ -1,20 +1,28 @@
 //import  {Task}  from './models/task.js';
 var tasks = [];
+var idTask=undefined;
+
 onload = () => {
     var t = JSON.parse(localStorage.getItem('tarefas'));
     (t)?tasks = t: tasks = [];
     loadList();
 }
 
-function newTask(){
+function newTask(value){
     document.getElementById("tela1").style.display = 'none';
     document.getElementById("tela2").style.visibility = 'visible';
+
+    if(value==='new'){
+        document.getElementById("edittask").style.visibility = 'hidden'; // inline-block;
+        document.getElementById("newtask").style.visibility = 'visible';
+    }else{
+        document.getElementById("newtask").style.visibility = 'hidden';
+        document.getElementById("edittask").style.visibility = 'visible';
+    }
 }
 
 function saveTask(){
-        
     if($('#tema').val() !== '' && $('#descricao').val() !== '' ){
-        
         const task = new Task(tasks.length,false,$('#tema').val(),$('#descricao').val(),$('#startDate').val(),$('#endDate').val());
         console.log('Minhas tarefas =>  ', task);
         tasks.push(task);
@@ -27,9 +35,37 @@ function saveTask(){
     }
 }
 
+function editTask(){
+    console.log('old tasks ', tasks);
+    const editTasks = JSON.parse(localStorage.getItem('tarefas'));
+    
+    var t = editTasks.filter(function (item) {
+        if(item.id == this.idTask){
+            item.nome = $('#tema').val();
+            item.descricao = $('#descricao').val();
+            item.startDate = $('#startDate').val();
+            item.endDate = $('#endDate').val();
+        }
+        return item;
+    });
+
+    console.log('new tasks ', t);
+    localStorage.setItem('tarefas', JSON.stringify(t));
+
+    
+    this.loadList().then(response => {
+        console.log('response');
+        this.backToList();
+    });
+
+}
+
 function backToList(){
+    this.idTask = undefined;
     document.getElementById("tela1").style.display = 'block';
     document.getElementById("tela2").style.visibility = 'hidden';
+    this.resetButtons();
+    this.resetForms();
 }
 
 async function createTask(){
@@ -86,6 +122,10 @@ async function resetForms(){
     $('#endDate').val("");
 }
 
+async function resetButtons(){
+    document.getElementById("edittask").style.visibility = 'hidden';
+    document.getElementById("newtask").style.visibility = 'hidden';
+}
 
 async function apagarTarefa(id){
     const delTask = JSON.parse(localStorage.getItem('tarefas'));
@@ -98,7 +138,8 @@ async function apagarTarefa(id){
 }
 
 function editarTarefa(id){
-    this.newTask();
+    this.idTask = id;
+    this.newTask('edit');
     const editTasks = JSON.parse(localStorage.getItem('tarefas'));
     var editTask = editTasks.filter(function (item) {
         return item.id == id;
@@ -107,9 +148,6 @@ function editarTarefa(id){
     document.getElementById("descricao").value = editTask[0].descricao;
     document.getElementById("startDate").value = editTask[0].startDate;
     document.getElementById("endDate").value = editTask[0].endDate;
-
-    //this.saveTask('edit');
-
 }
 
 async function updateTasks(){
