@@ -14,9 +14,9 @@ Portanto não sendo necessário dados pessoais do usuário, apenas armazena as l
 
 ## Observações
 
-- Legenda
-[x] SIM
-[ ] Não
+Legenda:
+- [x] SIM
+- [ ] NÃO
 
 Caso você responda "não" a qualquer uma dessas questões, justifique o porquê.
 
