@@ -36,9 +36,7 @@ function saveTask(){
 }
 
 function editTask(){
-    console.log('old tasks ', tasks);
     const editTasks = JSON.parse(localStorage.getItem('tarefas'));
-    
     var t = editTasks.filter(function (item) {
         if(item.id == this.idTask){
             item.nome = $('#tema').val();
@@ -49,15 +47,14 @@ function editTask(){
         return item;
     });
 
-    console.log('new tasks ', t);
-    localStorage.setItem('tarefas', JSON.stringify(t));
-
-    
-    this.loadList().then(response => {
-        console.log('response');
-        this.backToList();
-    });
-
+    if($('#tema').val() !== '' && $('#descricao').val() !== '' ){
+        localStorage.setItem('tarefas', JSON.stringify(t));
+        this.loadList().then(response => {
+            document.location.reload();
+            console.log('response');
+            this.backToList();
+        });
+    }
 }
 
 function backToList(){
