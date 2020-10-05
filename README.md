@@ -19,4 +19,4 @@ O aplicativo não necessita de permissão para acesso, os dados são armazenados
 - [x] A aplicação possui um service worker que permite o funcionamento off-line?
 - [x] O código da minha aplicação possui comentários explicando cada operação?
 - [x] A aplicação está funcionando corretamente?
-- [] A aplicação está completa?
+- [ ] A aplicação está completa?
