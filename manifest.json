@@ -1,12 +1,12 @@
 {
   "name": "To Learning",
-  "short_name": "TL",
+  "short_name": "ToL",
   "start_url": "./index.html",
   "display": "standalone",
   "description": "Uma PWA simples",
   "icons": [{
-    "src": "imagens/logo.png",
+    "src": "./images/logo.png",
     "sizes": "144x144",
-    "type": "imagens/logo.png"
+    "type": "./images/logo.png"
   }]
 }
