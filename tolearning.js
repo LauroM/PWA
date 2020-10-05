@@ -1,11 +1,10 @@
 //import  {Task}  from './models/task.js';
-
+var tasks = [];
 onload = () => {
     var t = JSON.parse(localStorage.getItem('tarefas'));
     (t)?tasks = t: tasks = [];
     loadList();
 }
-
 
 function newTask(){
     document.getElementById("tela1").style.display = 'none';
