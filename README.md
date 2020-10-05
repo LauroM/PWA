@@ -12,11 +12,11 @@ Simples PWA para criar rotina de estudos em um período de tempo e analisar o pr
 O aplicativo não necessita de permissão para acesso, os dados são armazenados localmente pela aplicação contendo as atividades do usuário.
 
 ## Observações
-- [x] A aplicação é original e não uma cópia da aplicação de um colega ou de uma aplicação já existente?
-- [x] A aplicação tem pelo menos duas interfaces (telas ou páginas) independentes?
-- [x] A aplicação armazena e usa de forma relevante dados complexos do usuário?
-- [x] A aplicação possui um manifesto para instalação no dispositivo do usuário?
-- [x] A aplicação possui um service worker que permite o funcionamento off-line?
-- [x] O código da minha aplicação possui comentários explicando cada operação?
-- [x] A aplicação está funcionando corretamente?
-- [ ] A aplicação está completa?
+[x] A aplicação é original e não uma cópia da aplicação de um colega ou de uma aplicação já existente?
+[x] A aplicação tem pelo menos duas interfaces (telas ou páginas) independentes?
+[x] A aplicação armazena e usa de forma relevante dados complexos do usuário?
+[x] A aplicação possui um manifesto para instalação no dispositivo do usuário?
+[x] A aplicação possui um service worker que permite o funcionamento off-line?
+[x] O código da minha aplicação possui comentários explicando cada operação?
+[x] A aplicação está funcionando corretamente?
+[ ] A aplicação está completa?
