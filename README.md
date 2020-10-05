@@ -9,10 +9,18 @@ Simples PWA para criar rotina de estudos em um período de tempo e analisar o pr
 
 ## Dados armazenados pela aplicação
 
-O aplicativo não necessita de permissão para acesso, os dados são armazenados localmente pela aplicação contendo as atividades do usuário.
+O aplicativo não necessita de permissão para acesso, os dados são armazenados localmente pela aplicação.
+Portanto não sendo necessário dados pessoais do usuário, apenas armazena as listas de estudos (tema, observação, data de inicio e data de fim).
 
 ## Observações
-- [x] A aplicação é original e não uma cópia da aplicação de um colega ou de uma aplicação já existente?
+
+- Legenda
+    -[X] SIM
+    -[ ] Não
+
+Caso você responda "não" a qualquer uma dessas questões, justifique o porquê.
+
+- [ ] A aplicação é original e não uma cópia da aplicação de um colega ou de uma aplicação já existente?
 - [x] A aplicação tem pelo menos duas interfaces (telas ou páginas) independentes?
 - [x] A aplicação armazena e usa de forma relevante dados complexos do usuário?
 - [x] A aplicação possui um manifesto para instalação no dispositivo do usuário?
