@@ -51,7 +51,7 @@ async function createTask(){
     $('#tema').val("");
     $('#descricao').val("");
     $('#startDate').val("");
-    $('#endtDate').val("");
+    $('#endDate').val("");
 
 }
 
@@ -83,7 +83,7 @@ async function resetForms(){
     $('#tema').val("");
     $('#descricao').val("");
     $('#startDate').val("");
-    $('#endtDate').val("");
+    $('#endDate').val("");
 }
 
 
@@ -106,7 +106,7 @@ function editarTarefa(id){
     document.getElementById("tema").value = editTask[0].nome;
     document.getElementById("descricao").value = editTask[0].descricao;
     document.getElementById("startDate").value = editTask[0].startDate;
-    document.getElementById("endDate").value = editTask[0].endtDate;
+    document.getElementById("endDate").value = editTask[0].endDate;
 
     //this.saveTask('edit');
 
