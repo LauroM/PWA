@@ -20,7 +20,7 @@ Legenda:
 
 Caso você responda "não" a qualquer uma dessas questões, justifique o porquê.
 
-1. [ ] A aplicação é original e não uma cópia da aplicação de um colega ou de uma aplicação já existente?
+- [ ] A aplicação é original e não uma cópia da aplicação de um colega ou de uma aplicação já existente?
 - [x] A aplicação tem pelo menos duas interfaces (telas ou páginas) independentes?
 - [x] A aplicação armazena e usa de forma relevante dados complexos do usuário?
 - [x] A aplicação possui um manifesto para instalação no dispositivo do usuário?
@@ -29,4 +29,9 @@ Caso você responda "não" a qualquer uma dessas questões, justifique o porquê
 - [x] A aplicação está funcionando corretamente?
 - [ ] A aplicação está completa?
 
-Justificativas:
+Justificativas
+
+1. A aplicação é original e não uma cópia da aplicação de um colega ou de uma aplicação já existente?
+    - Não é cópia, mas também não é original. É similar um TO-DO list mas a ideia é para que o usuário estude e acompanhe o progresso.
+2. A aplicação está completa?
+    - Não ... EXPLICAR
