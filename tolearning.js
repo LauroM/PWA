@@ -23,13 +23,10 @@ function newTask(value){
 
 function saveTask(){
     if($('#tema').val() !== '' && $('#descricao').val() !== '' ){
-        const task = new Task(tasks.length,false,$('#tema').val(),$('#descricao').val(),$('#startDate').val(),$('#endDate').val());
-        console.log('Minhas tarefas =>  ', task);
+        const task = new Task(randomInt( 1, 2000) + tasks.length,false,$('#tema').val(),$('#descricao').val(),$('#startDate').val(),$('#endDate').val());
         tasks.push(task);
         localStorage.setItem('tarefas', JSON.stringify(tasks));
-        
         this.loadList().then(response => {
-            console.log('response');
             this.backToList();
         });
     }
@@ -51,7 +48,6 @@ function editTask(){
         localStorage.setItem('tarefas', JSON.stringify(t));
         this.loadList().then(response => {
             document.location.reload();
-            console.log('response');
             this.backToList();
         });
     }
@@ -64,30 +60,6 @@ function backToList(){
     this.resetButtons();
     this.resetForms();
 }
-
-async function createTask(){
-    var divPai = document.querySelector('#tarefas');
-    var divNova = document.createElement('div');
-    divNova.innerHTML = 
-    `<div class="list-group-item d-flex justify-content-between"> 
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="${tasks.length++}">
-            <label class="form-check-label" for="materialUnchecked">${$("#tema").val()}</label>
-        </div>
-        <div>
-            <i onclick="editarTarefa()" class="fas fa-pen" style="cursor: pointer; color:#007bff; margin-right: 10px;"></i>
-            <i onclick="apagarTarefa()" class="far fa-trash-alt" style="cursor: pointer; color:red;"></i>
-        </div>
-    </div>`;
-    divPai.append(divNova);
-
-    $('#tema').val("");
-    $('#descricao').val("");
-    $('#startDate').val("");
-    $('#endDate').val("");
-
-}
-
 
 async function loadList(){
     var divPai = document.querySelector('#tarefas');
@@ -147,6 +119,6 @@ function editarTarefa(id){
     document.getElementById("endDate").value = editTask[0].endDate;
 }
 
-async function updateTasks(){
-    this.saveTask();
+function randomInt(min, max) {
+	return min + Math.floor((max - min) * Math.random());
 }
