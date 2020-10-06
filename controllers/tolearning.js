@@ -157,3 +157,11 @@ function editarTarefa(id){
 function randomInt(min, max) {
 	return min + Math.floor((max - min) * Math.random());
 }
+
+$(document).ready(function(){
+    $("#startDate").mask("99/99/9999");
+});
+
+$(document).ready(function(){
+    $("#endDate").mask("99/99/9999");
+});
