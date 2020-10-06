@@ -1,6 +1,8 @@
 // variaveis globais
 var tasks = []; // lista de tarefas cadastradas
 var idTask=undefined; // id controller do item de edição
+var finalizados = 0;
+var emAndamento = 0;
 
 onload = () => {
     var t = JSON.parse(localStorage.getItem('tarefas'));
@@ -176,6 +178,7 @@ function concluida(id){
         return item;
     });
     localStorage.setItem('tarefas', JSON.stringify(t));
+    document.location.reload();
 }
 
 /**
@@ -202,6 +205,7 @@ $(document).ready(function(){
 
 
 function showGraphs(){
+    console.log(' => ', tasks.filter(function(el){ return !el.status}).length)
     document.getElementById("tela1").style.display = 'none';
     document.getElementById("tela2").style.display = 'none';
     document.getElementById("tela3").style.visibility = 'visible';
@@ -237,37 +241,17 @@ Highcharts.chart('container', {
       }
     },
     series: [{
-      name: 'Brands',
+      name: 'Status',
       colorByPoint: true,
-      data: [{
-        name: 'Chrome',
-        y: 61.41,
+      data: 
+      [{
+        name: 'Finalizados',
+        y: JSON.parse(localStorage.getItem('tarefas')).filter(function(el){return el.status}).length,
         sliced: true,
         selected: true
       }, {
-        name: 'Internet Explorer',
-        y: 11.84
-      }, {
-        name: 'Firefox',
-        y: 10.85
-      }, {
-        name: 'Edge',
-        y: 4.67
-      }, {
-        name: 'Safari',
-        y: 4.18
-      }, {
-        name: 'Sogou Explorer',
-        y: 1.64
-      }, {
-        name: 'Opera',
-        y: 1.6
-      }, {
-        name: 'QQ',
-        y: 1.2
-      }, {
-        name: 'Other',
-        y: 2.61
+        name: 'Em Andamento',
+        y: JSON.parse(localStorage.getItem('tarefas')).filter(function(el){return !el.status}).length
       }]
     }]
   });
