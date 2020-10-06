@@ -8,20 +8,36 @@ onload = () => {
     loadList();
 }
 
+/**
+ * Ao abrir ou editar tarefa, é chamado esta função, que faz a manipulação das telas
+ * caso seja nova tarefa monta de uma forma, se for edição monta de outra
+ * 
+ * @param {string} value Recebe string informando o tipo, se é nova tarefa 'new' ou edição 'edit' para montar a tela
+ */
 function newTask(value){
-    document.getElementById("tela1").style.display = 'none';
-    document.getElementById("tela2").style.visibility = 'visible';
 
-    // TO-DO desfazer essa gambiarra mostruosa
-    if(value==='new'){
-        document.getElementById("edittask").style.visibility = 'hidden';
-        document.getElementById("newtask").style.visibility = 'visible';
-    }else{
-        document.getElementById("newtask").style.visibility = 'hidden';
-        document.getElementById("edittask").style.visibility = 'visible';
-    }
+    this.renderScreens().then(r => {
+        // TO-DO desfazer essa gambiarra mostruosa
+        if(value==='new'){
+            document.getElementById("edittask").style.visibility = 'hidden';
+            document.getElementById("newtask").style.visibility = 'visible';
+        }else{
+            document.getElementById("newtask").style.visibility = 'hidden';
+            document.getElementById("edittask").style.visibility = 'visible';
+        }
+    });
 }
 
+async function renderScreens(){
+    document.getElementById("tela1").style.display = 'none';
+    document.getElementById("tela3").style.visibility = 'hidden';
+    document.getElementById("tela2").style.display = 'block';
+    document.getElementById("tela2").style.visibility = 'visible';
+}
+
+/**
+ * Funcao para salvar nova tarefa
+ */
 function saveTask(){
     if($('#tema').val() !== '' && $('#descricao').val() !== '' ){
         const task = new Task(randomInt( 1, 2000) + tasks.length,false,$('#tema').val(),$('#descricao').val(),$('#startDate').val(),$('#endDate').val());
@@ -33,6 +49,10 @@ function saveTask(){
     }
 }
 
+/**
+ * Editar tarefa da lista de estudos, apos feito a alterações necessarias e ao clicar em salvar
+ * Pelo id é atualizado os campos da respectiva tarefa
+ */
 function editTask(){
     const editTasks = JSON.parse(localStorage.getItem('tarefas'));
     var t = editTasks.filter(function (item) {
@@ -90,6 +110,7 @@ function backToList(){
     this.idTask = undefined;
     document.getElementById("tela1").style.display = 'block';
     document.getElementById("tela2").style.visibility = 'hidden';
+    document.getElementById("tela3").style.visibility = 'hidden';
     this.resetButtons();
     this.resetForms();
 }
@@ -158,6 +179,9 @@ function randomInt(min, max) {
 	return min + Math.floor((max - min) * Math.random());
 }
 
+/**
+ * Mascaras para data de inicio e data final
+ */
 $(document).ready(function(){
     $("#startDate").mask("99/99/9999");
 });
@@ -165,3 +189,76 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#endDate").mask("99/99/9999");
 });
+
+
+
+function showGraphs(){
+    document.getElementById("tela1").style.display = 'none';
+    document.getElementById("tela2").style.display = 'none';
+    document.getElementById("tela3").style.visibility = 'visible';
+}
+
+
+Highcharts.chart('container', {
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: 'pie'
+    },
+    title: {
+      text: 'Status Atividades'
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+      point: {
+        valueSuffix: '%'
+      }
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+        }
+      }
+    },
+    series: [{
+      name: 'Brands',
+      colorByPoint: true,
+      data: [{
+        name: 'Chrome',
+        y: 61.41,
+        sliced: true,
+        selected: true
+      }, {
+        name: 'Internet Explorer',
+        y: 11.84
+      }, {
+        name: 'Firefox',
+        y: 10.85
+      }, {
+        name: 'Edge',
+        y: 4.67
+      }, {
+        name: 'Safari',
+        y: 4.18
+      }, {
+        name: 'Sogou Explorer',
+        y: 1.64
+      }, {
+        name: 'Opera',
+        y: 1.6
+      }, {
+        name: 'QQ',
+        y: 1.2
+      }, {
+        name: 'Other',
+        y: 2.61
+      }]
+    }]
+  });
