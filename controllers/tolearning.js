@@ -89,7 +89,7 @@ async function loadList(){
         divNova.innerHTML = 
         `<div class="list-group-item d-flex justify-content-between"> 
             <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="${element.id}">
+                <input type="checkbox" class="form-check-input" id="itemCheck" onclick="concluida(${element.id})" ${element.status? 'checked':''}>
                 <label class="form-check-label" for="materialUnchecked">${element.nome}</label>
             </div>
             <div>
@@ -168,6 +168,16 @@ function editarTarefa(id){
     document.getElementById("endDate").value = editTask[0].endDate;
 }
 
+function concluida(id){
+    console.log('id checkbox ', id);
+    const editTasks = JSON.parse(localStorage.getItem('tarefas'));
+    var t = editTasks.filter(function (item) {
+        if(item.id == id) item.status = !item.status;
+        return item;
+    });
+    localStorage.setItem('tarefas', JSON.stringify(t));
+}
+
 /**
  * Funcao para gerar de modo randomico o Id da tarefa, a partir de um range definido como parametro
  * 
@@ -189,7 +199,6 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#endDate").mask("99/99/9999");
 });
-
 
 
 function showGraphs(){
