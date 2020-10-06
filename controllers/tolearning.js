@@ -1,8 +1,6 @@
 // variaveis globais
 var tasks = []; // lista de tarefas cadastradas
 var idTask=undefined; // id controller do item de edição
-var finalizados = 0;
-var emAndamento = 0;
 
 onload = () => {
     var t = JSON.parse(localStorage.getItem('tarefas'));
