@@ -216,8 +216,6 @@ $(document).ready(function(){
 
 
 function showGraphs(){
-    
-    //document.getElementById("tela3").hidden = false;
     document.getElementById("tela1").style.display = 'none';
     document.getElementById("tela2").style.display = 'none';
     document.getElementById("tela3").style.visibility = 'visible';
