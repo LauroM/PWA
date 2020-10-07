@@ -1,6 +1,4 @@
-// https://developers.google.com/web/fundamentals/primers/service-workers?hl=pt
-
-var CACHE_NAME = 'my-site-cache-v1';
+var CACHE_NAME = 'to-learning-v1';
 var urlsToCache = [
   '/',
   '/styles.css',
@@ -10,7 +8,6 @@ var urlsToCache = [
   '/fontawesome-free-5.15.0-web/css/solid.css',
   '/models/task.js',
   '/controllers/tolearning.js',
-  '/app.html',
   '/images/logo.png'
 ];
 

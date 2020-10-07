@@ -216,7 +216,8 @@ $(document).ready(function(){
 
 
 function showGraphs(){
-    console.log(' => ', tasks.filter(function(el){ return !el.status}).length)
+    
+    //document.getElementById("tela3").hidden = false;
     document.getElementById("tela1").style.display = 'none';
     document.getElementById("tela2").style.display = 'none';
     document.getElementById("tela3").style.visibility = 'visible';
@@ -257,12 +258,12 @@ Highcharts.chart('container', {
       data: 
       [{
         name: 'Finalizados',
-        y: JSON.parse(localStorage.getItem('tarefas')).filter(function(el){return el.status}).length,
+        y: JSON.parse(localStorage.getItem('tarefas'))? JSON.parse(localStorage.getItem('tarefas')).filter(function(el){return el.status}).length : 0,
         sliced: true,
         selected: true
       }, {
         name: 'Em Andamento',
-        y: JSON.parse(localStorage.getItem('tarefas')).filter(function(el){return !el.status}).length
+        y: JSON.parse(localStorage.getItem('tarefas'))? JSON.parse(localStorage.getItem('tarefas')).filter(function(el){return !el.status}).length : 0
       }]
     }]
   });
