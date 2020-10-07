@@ -7,6 +7,10 @@ Simples PWA para criar rotina de estudos em um período de tempo e analisar o pr
 
 ## Telas
 
+1. Tela inicial
+
+![Logo do R](http://developer.r-project.org/Logo/Rlogo-5.png)
+
 ## Dados armazenados pela aplicação
 
 O aplicativo não necessita de permissão para acesso, os dados são armazenados localmente pela aplicação.
