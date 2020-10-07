@@ -8,15 +8,9 @@ Simples PWA para criar rotina de estudos em um período de tempo e analisar o pr
 ## Telas
 
 
-![Tela 1](images/telas/t2.jpeg)
-![Tela 1](images/telas/t3.jpeg)
-
-![Tela 1](images/telas/t1.jpeg)
-![Tela 1](images/telas/t7.jpeg)
-
-![Tela 1](images/telas/t4.jpeg)
-![Tela 1](images/telas/t5.jpeg)
-![Tela 1](images/telas/t6.jpeg)
+![Tela Inicial](images/telas/home.png)
+![Tela Cadastro e Edição](images/telas/new_and_edit.png)
+![Tela Dashboard](images/telas/dashboard.png)
 
 ## Dados armazenados pela aplicação
 
