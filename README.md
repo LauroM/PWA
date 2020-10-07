@@ -9,14 +9,17 @@ Simples PWA para criar rotina de estudos em um período de tempo e analisar o pr
 
 ###### Tela inicial
 - Tela inicial onde será mostrado os conteúdos de estudos no periodo de aprendizado do usuário. O usuário pode finalizar, editar, criar ou apagar tarefa.
+
 ![Tela Inicial](images/telas/home.png)
 
 ###### Tela de cadastro e edição
 - O usuário registra novo conteúdo de estudo ou edição de um já criado.
+
 ![Tela Cadastro e Edição](images/telas/new_and_edit.png)
 
 ###### Tela de progresso
-- O usuário pode acompanhar o status dos estudos.
+- O usuário pode acompanhar o status dos estudos, acompanhando seu rendimento e pode gerar relatório.
+
 ![Tela Dashboard](images/telas/dashboard.png)
 
 ## Dados armazenados pela aplicação
