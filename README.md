@@ -50,3 +50,8 @@ Justificativas:
     - Não é cópia, e também não é original,pois é similar a um TO-DO list. A ideia é o usuário estudar e acompanhar o progresso nos conteúdos.
 2. A aplicação está completa?
     - Não, a aplicação contém mais funcionalidades, inclusive na forma de definir o cronograma de estudos. Inicialmente era para ser desenvolvido com uso de alguma Framework (Ionic ou React), mas para fins didáticos, foi definido pelo professor o desenvolvimento de uma PWA do projeto sem uso de framework, e devido ao prazo foi desenvolvido um esboço.
+
+## Links
+[GitHub](https://github.com/LauroM/PWA).
+[Repl.it](https://repl.it/@LauroM1/PWA).
+[LinkedIn](https://www.linkedin.com/in/lauro-milagres-38030b167/).
