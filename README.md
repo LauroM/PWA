@@ -9,7 +9,7 @@ Simples PWA para criar rotina de estudos em um período de tempo e analisar o pr
 
 1. Tela inicial
 
-![Logo do R](http://developer.r-project.org/Logo/Rlogo-5.png)
+![Logo do R](images/telas/t7.jpeg)
 
 ## Dados armazenados pela aplicação
 
