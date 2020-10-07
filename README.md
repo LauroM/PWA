@@ -8,8 +8,18 @@ Simples PWA para criar rotina de estudos em um período de tempo e analisar o pr
 ## Telas
 
 1. Tela inicial
-
-![Logo do R](images/telas/t7.jpeg)
+- Explicar
+![Tela 1](images/telas/t2.jpeg)
+![Tela 1](images/telas/t3.jpeg)
+2. Tela de cadastro e edição
+- Explicar
+![Tela 1](images/telas/t1.jpeg)
+![Tela 1](images/telas/t2.jpeg)
+3. Tela de progresso
+- Explicar
+![Tela 1](images/telas/t4.jpeg)
+![Tela 1](images/telas/t5.jpeg)
+![Tela 1](images/telas/t6.jpeg)
 
 ## Dados armazenados pela aplicação
 
