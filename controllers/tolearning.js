@@ -41,6 +41,9 @@ function newTask(value){
     });
 }
 
+/**
+ * Funcao controla a visibilidade das telas, pelo id no HTML
+ */
 async function renderScreens(){
     document.getElementById("tela1").style.display = 'none';
     document.getElementById("tela3").style.visibility = 'hidden';
@@ -181,6 +184,10 @@ function editarTarefa(id){
     document.getElementById("endDate").value = editTask[0].endDate;
 }
 
+/**
+ * Funcao por alterar o status da atividade, se concluiu ou não, é feito a alteração pelo id
+ * @param {int} id   id da atividade concluida
+ */
 function concluida(id){
     console.log('id checkbox ', id);
     const editTasks = JSON.parse(localStorage.getItem('tarefas'));
@@ -214,14 +221,18 @@ $(document).ready(function(){
     $("#endDate").mask("99/99/9999");
 });
 
-
+/**
+ * Controla visibilidade das telas, para renderizar o dashboard
+ */
 function showGraphs(){
     document.getElementById("tela1").style.display = 'none';
     document.getElementById("tela2").style.display = 'none';
     document.getElementById("tela3").style.visibility = 'visible';
 }
 
-
+/**
+ * Grafico do andamentos das tarefas
+ */
 Highcharts.chart('container', {
     chart: {
       plotBackgroundColor: null,
