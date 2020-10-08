@@ -43,3 +43,12 @@
 input[type="number"] {
     min-width: 50px;
 }
+
+.beta {
+    border-style: solid;
+    width: 42px;
+    background: aqua;
+    border-color: aqua;
+    font-weight: bold;
+    border-radius: 10px;
+}
